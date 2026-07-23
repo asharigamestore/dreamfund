@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - Wishlist Page
+         Dream wishlist management
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - DreamFund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Sidebar Overlay (Mobile)
+         ============================================ -->
+    <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ============================================
+         Sidebar
+         ============================================ -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="sidebar-brand-text">DreamFund</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-home"></i>
+                <span class="nav-item-text">Beranda</span>
+            </a>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-piggy-bank"></i>
+                <span class="nav-item-text">Celengan Saya</span>
+            </a>
+            
+            <a href="wishlist.html" class="nav-item-sidebar active">
+                <i class="fas fa-heart"></i>
+                <span class="nav-item-text">Wishlist</span>
+            </a>
+            
+            <a href="statistics.html" class="nav-item-sidebar">
+                <i class="fas fa-chart-pie"></i>
+                <span class="nav-item-text">Statistik</span>
+            </a>
+            
+            <a href="history.html" class="nav-item-sidebar">
+                <i class="fas fa-history"></i>
+                <span class="nav-item-text">Riwayat</span>
+            </a>
+            
+            <div class="nav-section-title">Lainnya</div>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-trophy"></i>
+                <span class="nav-item-text">Achievement</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-bell"></i>
+                <span class="nav-item-text">Pengingat</span>
+            </a>
+            
+            <a href="settings.html" class="nav-item-sidebar">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item-text">Pengaturan</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-user"></i>
+                <span class="nav-item-text">Tentang Developer</span>
+            </a>
+            
+            <a href="contact.html" class="nav-item-sidebar">
+                <i class="fas fa-phone"></i>
+                <span class="nav-item-text">Kontak</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="sidebar-avatar">A</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ashari</div>
+                    <div class="sidebar-user-role">Dream Saver</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         Main Content
+         ============================================ -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="d-flex align-items-center gap-3">
+                <button class="header-btn d-lg-none" id="mobile-sidebar-toggle" title="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="header-search d-none d-md-block">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="form-control" id="wishlist-search" placeholder="Cari wishlist...">
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="header-btn position-relative" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-pill" style="font-size: 0.6rem; padding: 0.15rem 0.4rem;">3</span>
+                </button>
+                
+                <button class="header-btn" title="Profil">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Page Header -->
+            <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <h1 class="page-title">Wishlist Impian</h1>
+                    <p class="page-subtitle">Catat dan pantau barang impianmu</p>
+                </div>
+                <button class="btn btn-primary btn-glow" onclick="openAddWishlistModal()">
+                    <i class="fas fa-plus me-2"></i>Tambah Wishlist
+                </button>
+            </div>
+
+            <!-- Filter & Sort Bar -->
+            <div class="glass-card p-3 mb-4" data-aos="fade-up">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" id="filter-search" placeholder="Cari nama barang...">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filter-category">
+                            <option value="">Semua Kategori</option>
+                            <option value="elektronik">Elektronik</option>
+                            <option value="kendaraan">Kendaraan</option>
+                            <option value="properti">Properti</option>
+                            <option value="travel">Travel</option>
+                            <option value="pendidikan">Pendidikan</option>
+                            <option value="kesehatan">Kesehatan</option>
+                            <option value="bisnis">Bisnis</option>
+                            <option value="pernikahan">Pernikahan</option>
+                            <option value="lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filter-status">
+                            <option value="">Semua Status</option>
+                            <option value="menabung">Menabung</option>
+                            <option value="tercapai">Tercapai</option>
+                            <option value="dibatalkan">Dibatalkan</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="filter-sort">
+                            <option value="newest">Terbaru</option>
+                            <option value="oldest">Terlama</option>
+                            <option value="price-high">Harga Tertinggi</option>
+                            <option value="price-low">Harga Terendah</option>
+                            <option value="priority">Prioritas</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishlist Stats -->
+            <div class="row g-4 mb-4">
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="stat-card-icon danger">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-total-wishlist">0</div>
+                        <div class="stat-card-label">Total Wishlist</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-card-icon warning">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-total-price">Rp 0</div>
+                        <div class="stat-card-label">Total Nilai</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-card-icon success">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-completed">0</div>
+                        <div class="stat-card-label">Tercapai</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-card-icon primary">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-avg-days">0</div>
+                        <div class="stat-card-label">Rata-rata Hari</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wishlist Grid -->
+            <div class="row g-4" id="wishlist-grid">
+                <!-- Dynamic content -->
+            </div>
+
+            <!-- Empty State (Hidden by default) -->
+            <div id="wishlist-empty" class="empty-state glass-card" style="display: none;">
+                <div class="empty-state-icon">
+                    <i class="fas fa-heart-broken"></i>
+                </div>
+                <h4 class="empty-state-title">Wishlist Kosong</h4>
+                <p class="empty-state-desc">Belum ada wishlist yang ditambahkan. Mulai catat impianmu sekarang!</p>
+                <button class="btn btn-primary" onclick="openAddWishlistModal()">
+                    <i class="fas fa-plus me-2"></i>Tambah Wishlist Pertama
+                </button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-5 py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+            <p class="text-muted small mb-0">
+                Made with <i class="fas fa-heart text-danger"></i> by Ashari &bull; Version 1.0.0
+            </p>
+        </footer>
+    </main>
+
+    <!-- ============================================
+         Add Wishlist Modal
+         ============================================ -->
+    <div class="modal fade" id="addWishlistModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-heart text-danger me-2"></i>Tambah Wishlist Baru
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-wishlist-form">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Barang</label>
+                            <input type="text" class="form-control" name="name" placeholder="Contoh: iPhone 16 Pro" required>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Harga Target</label>
+                                <input type="number" class="form-control" name="price" placeholder="22000000" min="1000" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Kategori</label>
+                                <select class="form-select" name="category" required>
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="elektronik">Elektronik</option>
+                                    <option value="kendaraan">Kendaraan</option>
+                                    <option value="properti">Properti</option>
+                                    <option value="travel">Travel</option>
+                                    <option value="pendidikan">Pendidikan</option>
+                                    <option value="kesehatan">Kesehatan</option>
+                                    <option value="bisnis">Bisnis</option>
+                                    <option value="pernikahan">Pernikahan</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Target Tanggal</label>
+                                <input type="date" class="form-control" name="targetDate" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Prioritas</label>
+                                <select class="form-select" name="priority" required>
+                                    <option value="high">Tinggi</option>
+                                    <option value="medium" selected>Sedang</option>
+                                    <option value="low">Rendah</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Foto Barang (Opsional)</label>
+                            <input type="file" class="form-control" name="image" accept="image/*" id="wishlist-image-input">
+                            <div class="form-text small">Maksimal 2MB, format JPG/PNG</div>
+                            <div id="image-preview" class="mt-2 rounded-3 overflow-hidden" style="max-width: 200px; display: none;">
+                                <img src="" alt="Preview" class="img-fluid">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Catatan (Opsional)</label>
+                            <textarea class="form-control" name="note" rows="2" placeholder="Spesifikasi atau catatan tambahan..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="submitAddWishlist()">
+                        <i class="fas fa-save me-2"></i>Simpan Wishlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Edit Wishlist Modal
+         ============================================ -->
+    <div class="modal fade" id="editWishlistModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-edit text-primary me-2"></i>Edit Wishlist
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-wishlist-form">
+                        <input type="hidden" name="id" id="edit-wishlist-id">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Barang</label>
+                            <input type="text" class="form-control" name="name" id="edit-wishlist-name" required>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Harga Target</label>
+                                <input type="number" class="form-control" name="price" id="edit-wishlist-price" min="1000" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Kategori</label>
+                                <select class="form-select" name="category" id="edit-wishlist-category" required>
+                                    <option value="elektronik">Elektronik</option>
+                                    <option value="kendaraan">Kendaraan</option>
+                                    <option value="properti">Properti</option>
+                                    <option value="travel">Travel</option>
+                                    <option value="pendidikan">Pendidikan</option>
+                                    <option value="kesehatan">Kesehatan</option>
+                                    <option value="bisnis">Bisnis</option>
+                                    <option value="pernikahan">Pernikahan</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Target Tanggal</label>
+                                <input type="date" class="form-control" name="targetDate" id="edit-wishlist-date" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Prioritas</label>
+                                <select class="form-select" name="priority" id="edit-wishlist-priority" required>
+                                    <option value="high">Tinggi</option>
+                                    <option value="medium">Sedang</option>
+                                    <option value="low">Rendah</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" name="status" id="edit-wishlist-status" required>
+                                <option value="menabung">Menabung</option>
+                                <option value="tercapai">Tercapai</option>
+                                <option value="dibatalkan">Dibatalkan</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="submitEditWishlist()">
+                        <i class="fas fa-save me-2"></i>Simpan Perubahan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/wishlist.js"></script>
+</body>
+</html>
