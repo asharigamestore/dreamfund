@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - History Page
+         Activity history tracking
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwayat - DreamFund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Sidebar Overlay (Mobile)
+         ============================================ -->
+    <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ============================================
+         Sidebar
+         ============================================ -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="sidebar-brand-text">DreamFund</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-home"></i>
+                <span class="nav-item-text">Beranda</span>
+            </a>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-piggy-bank"></i>
+                <span class="nav-item-text">Celengan Saya</span>
+            </a>
+            
+            <a href="wishlist.html" class="nav-item-sidebar">
+                <i class="fas fa-heart"></i>
+                <span class="nav-item-text">Wishlist</span>
+            </a>
+            
+            <a href="statistics.html" class="nav-item-sidebar">
+                <i class="fas fa-chart-pie"></i>
+                <span class="nav-item-text">Statistik</span>
+            </a>
+            
+            <a href="history.html" class="nav-item-sidebar active">
+                <i class="fas fa-history"></i>
+                <span class="nav-item-text">Riwayat</span>
+            </a>
+            
+            <div class="nav-section-title">Lainnya</div>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-trophy"></i>
+                <span class="nav-item-text">Achievement</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-bell"></i>
+                <span class="nav-item-text">Pengingat</span>
+            </a>
+            
+            <a href="settings.html" class="nav-item-sidebar">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item-text">Pengaturan</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-user"></i>
+                <span class="nav-item-text">Tentang Developer</span>
+            </a>
+            
+            <a href="contact.html" class="nav-item-sidebar">
+                <i class="fas fa-phone"></i>
+                <span class="nav-item-text">Kontak</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="sidebar-avatar">A</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ashari</div>
+                    <div class="sidebar-user-role">Dream Saver</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         Main Content
+         ============================================ -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="d-flex align-items-center gap-3">
+                <button class="header-btn d-lg-none" id="mobile-sidebar-toggle" title="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="header-search d-none d-md-block">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="form-control" id="history-search" placeholder="Cari riwayat...">
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="header-btn position-relative" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-pill" style="font-size: 0.6rem; padding: 0.15rem 0.4rem;">3</span>
+                </button>
+                
+                <button class="header-btn" title="Profil">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Page Header -->
+            <div class="page-header d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <h1 class="page-title">Riwayat Aktivitas</h1>
+                    <p class="page-subtitle">Semua aktivitas tabungan dan wishlist</p>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-danger" onclick="clearAllHistory()">
+                        <i class="fas fa-trash-alt me-2"></i>Hapus Semua
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filter Bar -->
+            <div class="glass-card p-3 mb-4" data-aos="fade-up">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-text bg-transparent border-end-0">
+                                <i class="fas fa-search text-muted"></i>
+                            </span>
+                            <input type="text" class="form-control border-start-0" id="filter-search" placeholder="Cari aktivitas...">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filter-type">
+                            <option value="">Semua Tipe</option>
+                            <option value="saving">Menabung</option>
+                            <option value="completed">Target Tercapai</option>
+                            <option value="created">Target Baru</option>
+                            <option value="wishlist">Wishlist</option>
+                            <option value="edit">Diubah</option>
+                            <option value="delete">Dihapus</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select" id="filter-period">
+                            <option value="">Semua Waktu</option>
+                            <option value="today">Hari Ini</option>
+                            <option value="week">Minggu Ini</option>
+                            <option value="month">Bulan Ini</option>
+                            <option value="year">Tahun Ini</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <select class="form-select" id="filter-sort">
+                            <option value="newest">Terbaru</option>
+                            <option value="oldest">Terlama</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Stats -->
+            <div class="row g-4 mb-4">
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="stat-card-icon primary">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-total-history">0</div>
+                        <div class="stat-card-label">Total Aktivitas</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="stat-card-icon success">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-total-savings">Rp 0</div>
+                        <div class="stat-card-label">Total Menabung</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="stat-card-icon warning">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-completed-targets">0</div>
+                        <div class="stat-card-label">Target Tercapai</div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="stat-card-icon info">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-card-value" id="stat-this-month">0</div>
+                        <div class="stat-card-label">Aktivitas Bulan Ini</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Timeline -->
+            <div class="glass-card p-4" data-aos="fade-up">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Timeline Aktivitas</h5>
+                    <span class="text-muted small" id="showing-count">Menampilkan 0 aktivitas</span>
+                </div>
+                
+                <div id="history-timeline">
+                    <!-- Dynamic content -->
+                </div>
+                
+                <!-- Load More -->
+                <div class="text-center mt-4" id="load-more-container">
+                    <button class="btn btn-outline-primary" id="load-more-btn" onclick="loadMoreHistory()">
+                        <i class="fas fa-chevron-down me-2"></i>Muat Lebih Banyak
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-5 py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+            <p class="text-muted small mb-0">
+                Made with <i class="fas fa-heart text-danger"></i> by Ashari &bull; Version 1.0.0
+            </p>
+        </footer>
+    </main>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/history.js"></script>
+</body>
+</html>
