@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - Landing Page
+         Modern Savings & Wishlist Tracker
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamFund - Every Dream Starts With Saving</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="landing-page">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Navigation Bar
+         ============================================ -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-navbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" href="index.html">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="brand-text">DreamFund</span>
+            </a>
+            
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Fitur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">Cara Kerja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="dashboard.html" class="btn btn-primary btn-glow">
+                            <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================
+         Hero Section
+         ============================================ -->
+    <section class="hero-section" id="home">
+        <!-- Background Elements -->
+        <div class="hero-bg-elements">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+            <div class="grid-pattern"></div>
+        </div>
+        
+        <div class="container hero-container">
+            <div class="row align-items-center min-vh-100">
+                <!-- Hero Content -->
+                <div class="col-lg-6 hero-content" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-badge">
+                        <span class="badge-pulse"></span>
+                        <i class="fas fa-sparkles me-2"></i>Gratis Selamanya
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Every Dream Starts
+                        <span class="gradient-text">With Saving</span>
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Wujudkan impianmu dengan target tabungan yang teratur, visual, dan memotivasi. 
+                        Atur keuanganmu dengan cara yang menyenangkan.
+                    </p>
+                    
+                    <div class="hero-actions">
+                        <a href="dashboard.html" class="btn btn-primary btn-lg btn-glow btn-ripple">
+                            <i class="fas fa-rocket me-2"></i>Mulai Sekarang
+                        </a>
+                        <a href="#preview" class="btn btn-outline-light btn-lg btn-glass">
+                            <i class="fas fa-play-circle me-2"></i>Lihat Demo
+                        </a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="12500">0</div>
+                            <div class="stat-label">Pengguna Aktif</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="8900">0</div>
+                            <div class="stat-label">Impian Tercapai</div>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="99">0</div>
+                            <div class="stat-label">% Gratis</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Hero Visual -->
+                <div class="col-lg-6 hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="hero-card-stack">
+                        <!-- Main Dashboard Card -->
+                        <div class="hero-card hero-card-main glass-card">
+                            <div class="card-header-glass">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="fw-semibold"><i class="fas fa-wallet me-2 text-primary"></i>Total Tabungan</span>
+                                    <span class="badge bg-success">+12.5%</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="amount-display">Rp 45.750.000</div>
+                                <div class="progress mt-3" style="height: 8px;">
+                                    <div class="progress-bar bg-primary" style="width: 65%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-2 small text-muted">
+                                    <span>Target: Rp 70.000.000</span>
+                                    <span>65%</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Wishlist Card -->
+                        <div class="hero-card hero-card-wishlist glass-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="wishlist-icon">
+                                    <i class="fas fa-laptop"></i>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="fw-semibold">MacBook Pro M3</div>
+                                    <div class="small text-muted">Rp 28.000.000</div>
+                                    <div class="progress mt-1" style="height: 4px;">
+                                        <div class="progress-bar bg-warning" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                                <div class="percentage">40%</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Achievement Card -->
+                        <div class="hero-card hero-card-achievement glass-card">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="achievement-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold">First Milestone!</div>
+                                    <div class="small text-muted">Target pertama tercapai</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="float-element float-coin">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="float-element float-chart">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="float-element float-star">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span class="scroll-text">Scroll ke bawah</span>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Trusted By Section
+         ============================================ -->
+    <section class="trusted-section py-5">
+        <div class="container">
+            <p class="trusted-label text-center mb-4" data-aos="fade-up">Dipercaya oleh ribuan pemimpi</p>
+            <div class="trusted-logos" data-aos="fade-up" data-aos-delay="100">
+                <div class="trusted-logo"><i class="fas fa-building"></i> StartupIndo</div>
+                <div class="trusted-logo"><i class="fas fa-graduation-cap"></i> Mahasiswa</div>
+                <div class="trusted-logo"><i class="fas fa-briefcase"></i> Profesional</div>
+                <div class="trusted-logo"><i class="fas fa-home"></i> Keluarga</div>
+                <div class="trusted-logo"><i class="fas fa-store"></i> UMKM</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Features Section
+         ============================================ -->
+    <section class="features-section py-6" id="features">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-badge">Fitur Unggulan</span>
+                <h2 class="section-title">Semua yang Kamu Butuhkan<br>untuk <span class="gradient-text">Mewujudkan Impian</span></h2>
+                <p class="section-subtitle">Desain intuitif dengan fitur lengkap untuk membantumu mencapai tujuan finansial.</p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-primary">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h4 class="feature-title">Target Tabungan</h4>
+                        <p class="feature-desc">Buat target tabungan dengan nominal, deadline, dan kategori yang jelas. Pantau progressmu secara real-time.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-success">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="feature-title">Wishlist Impian</h4>
+                        <p class="feature-desc">Catat barang impianmu dengan foto, harga, dan estimasi waktu pencapaian. Jadikan wishlist sebagai motivasi.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-warning">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4 class="feature-title">Statistik Visual</h4>
+                        <p class="feature-desc">Lihat perkembangan tabunganmu dalam bentuk grafik dan chart yang menarik dengan Chart.js.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-info">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h4 class="feature-title">Riwayat Lengkap</h4>
+                        <p class="feature-desc">Semua aktivitas tabungan tercatat rapi. Search, filter, dan sort untuk memudahkan tracking.</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-danger">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="feature-title">Achievement System</h4>
+                        <p class="feature-desc">Dapatkan badge dan pencapaian saat mencapai milestone. Confetti celebration untuk target yang tercapai!</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card glass-card h-100">
+                        <div class="feature-icon icon-purple">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h4 class="feature-title">Dark & Light Mode</h4>
+                        <p class="feature-desc">Pilih tema yang nyaman untuk matamu. Switch seamlessly antara dark mode dan light mode.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         How It Works Section
+         ============================================ -->
+    <section class="how-it-works-section py-6" id="how-it-works">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-badge">Cara Kerja</span>
+                <h2 class="section-title">Tiga Langkah Mudah<br>Menuju <span class="gradient-text">Impianmu</span></h2>
+            </div>
+            
+            <!-- Steps -->
+            <div class="row g-4">
+                <!-- Step 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="step-card text-center">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <h4 class="step-title">Buat Target</h4>
+                        <p class="step-desc">Tentukan nama target, nominal yang ingin dicapai, deadline, dan kategori sesuai kebutuhanmu.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="step-card text-center">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h4 class="step-title">Tabung Rutin</h4>
+                        <p class="step-desc">Catat setiap penambahan tabungan. Lihat progress bar bertambah dan semakin dekat dengan target.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-card text-center">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h4 class="step-title">Wujudkan Impian</h4>
+                        <p class="step-desc">Raih targetmu dan dapatkan celebration confetti! Lihat achievement badge di profilmu.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Connector Line (Desktop) -->
+            <div class="steps-connector d-none d-md-block">
+                <div class="connector-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Preview Dashboard Section
+         ============================================ -->
+    <section class="preview-section py-6" id="preview">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <span class="section-badge">Dashboard</span>
+                    <h2 class="section-title">Pantau Semua Target<br>dalam <span class="gradient-text">Satu Tampilan</span></h2>
+                    <p class="section-subtitle">Dashboard intuitif dengan circular progress, quick actions, dan ringkasan aktivitas terbaru.</p>
+                    
+                    <ul class="preview-features">
+                        <li>
+                            <div class="preview-icon"><i class="fas fa-check"></i></div>
+                            <span>Ringkasan total tabungan & target</span>
+                        </li>
+                        <li>
+                            <div class="preview-icon"><i class="fas fa-check"></i></div>
+                            <span>Progress circular yang menarik</span>
+                        </li>
+                        <li>
+                            <div class="preview-icon"><i class="fas fa-check"></i></div>
+                            <span>Quick action untuk tambah tabungan</span>
+                        </li>
+                        <li>
+                            <div class="preview-icon"><i class="fas fa-check"></i></div>
+                            <span>Quote motivasi harian</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="dashboard.html" class="btn btn-primary btn-glow mt-4">
+                        <i class="fas fa-arrow-right me-2"></i>Buka Dashboard
+                    </a>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="preview-mockup glass-card">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <div class="mockup-title">DreamFund Dashboard</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-row">
+                                <div class="mockup-stat">
+                                    <div class="mockup-label">Total Target</div>
+                                    <div class="mockup-value">Rp 150jt</div>
+                                </div>
+                                <div class="mockup-stat">
+                                    <div class="mockup-label">Total Tabungan</div>
+                                    <div class="mockup-value text-success">Rp 89jt</div>
+                                </div>
+                            </div>
+                            <div class="mockup-chart">
+                                <div class="mockup-circle">
+                                    <div class="mockup-percent">59%</div>
+                                </div>
+                            </div>
+                            <div class="mockup-bars">
+                                <div class="mockup-bar-item">
+                                    <span>MacBook</span>
+                                    <div class="mockup-bar"><div style="width: 75%"></div></div>
+                                </div>
+                                <div class="mockup-bar-item">
+                                    <span>Umroh</span>
+                                    <div class="mockup-bar"><div style="width: 45%"></div></div>
+                                </div>
+                                <div class="mockup-bar-item">
+                                    <span>Motor</span>
+                                    <div class="mockup-bar"><div style="width: 30%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FAQ Section
+         ============================================ -->
+    <section class="faq-section py-6" id="faq">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">Pertanyaan yang Sering<br><span class="gradient-text">Ditanyakan</span></h2>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion faq-accordion" id="faqAccordion">
+                        <!-- FAQ 1 -->
+                        <div class="accordion-item glass-card mb-3" data-aos="fade-up" data-aos-delay="0">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    <i class="fas fa-question-circle me-3 text-primary"></i>
+                                    Apakah DreamFund gratis?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Ya, DreamFund 100% gratis selamanya. Tidak ada biaya berlangganan, tidak ada iklan yang mengganggu, dan tidak ada fitur premium yang terkunci. Kami percaya semua orang berhak mengatur keuangan mereka dengan baik.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 2 -->
+                        <div class="accordion-item glass-card mb-3" data-aos="fade-up" data-aos-delay="100">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    <i class="fas fa-question-circle me-3 text-primary"></i>
+                                    Apakah data saya aman?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sangat aman. Semua data tersimpan di LocalStorage browser milikmu sendiri, bukan di server kami. Data tidak pernah dikirim ke internet, sehingga privasimu sepenuhnya terjaga. Kamu juga bisa export data kapan saja.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 3 -->
+                        <div class="accordion-item glass-card mb-3" data-aos="fade-up" data-aos-delay="200">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    <i class="fas fa-question-circle me-3 text-primary"></i>
+                                    Bisakah saya mengakses dari perangkat lain?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Karena data tersimpan di LocalStorage per browser, untuk mengakses dari perangkat lain kamu bisa menggunakan fitur Export/Import JSON di menu Pengaturan. Export data dari perangkat lama, lalu import di perangkat baru.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 4 -->
+                        <div class="accordion-item glass-card mb-3" data-aos="fade-up" data-aos-delay="300">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    <i class="fas fa-question-circle me-3 text-primary"></i>
+                                    Apakah ini aplikasi perbankan?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Bukan. DreamFund adalah aplikasi tracking dan planning keuangan. Kami tidak menyimpan uang, tidak melakukan transaksi, dan tidak terhubung dengan bank manapun. Kami hanya membantumu mengatur dan memantau target keuangan secara visual.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ 5 -->
+                        <div class="accordion-item glass-card mb-3" data-aos="fade-up" data-aos-delay="400">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    <i class="fas fa-question-circle me-3 text-primary"></i>
+                                    Bagaimana cara reset data?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Kamu bisa mereset semua data melalui menu Pengaturan > Reset Data. Pastikan untuk export data terlebih dahulu jika ingin menyimpan backup. Reset akan menghapus semua target, wishlist, dan riwayat tabungan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         CTA Section
+     ============================================ -->
+    <section class="cta-section py-6">
+        <div class="container">
+            <div class="cta-card glass-card text-center" data-aos="zoom-in">
+                <div class="cta-orb orb-left"></div>
+                <div class="cta-orb orb-right"></div>
+                
+                <h2 class="cta-title">Siap Mewujudkan Impianmu?</h2>
+                <p class="cta-subtitle">Mulai perjalanan tabunganmu sekarang. Gratis, aman, dan menyenangkan.</p>
+                
+                <div class="cta-actions">
+                    <a href="dashboard.html" class="btn btn-light btn-lg btn-glow">
+                        <i class="fas fa-rocket me-2"></i>Mulai Sekarang - Gratis
+                    </a>
+                </div>
+                
+                <p class="cta-note">
+                    <i class="fas fa-shield-alt me-2"></i>Tidak perlu registrasi. Data tersimpan di perangkatmu.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         Footer
+         ============================================ -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Brand -->
+                <div class="col-lg-4">
+                    <div class="footer-brand">
+                        <div class="brand-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <span class="brand-text">DreamFund</span>
+                    </div>
+                    <p class="footer-desc">
+                        Wujudkan impianmu dengan target tabungan yang teratur, visual, dan memotivasi.
+                    </p>
+                    <div class="footer-social">
+                        <a href="https://github.com" target="_blank" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-link" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="mailto:hello@dreamfund.app" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-title">Menu</h5>
+                    <ul class="footer-links">
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="wishlist.html">Wishlist</a></li>
+                        <li><a href="statistics.html">Statistik</a></li>
+                        <li><a href="history.html">Riwayat</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-6 col-lg-2">
+                    <h5 class="footer-title">Lainnya</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Developer</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="settings.html">Pengaturan</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Newsletter</h5>
+                    <p class="footer-desc small">Dapatkan tips menabung dan update fitur terbaru.</p>
+                    <form class="footer-newsletter" onsubmit="event.preventDefault(); showToast('Terima kasih telah berlangganan!','success');">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Email kamu" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="footer-copyright">
+                            Made with <i class="fas fa-heart text-danger"></i> by Ashari
+                        </p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="footer-version">Version 1.0.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
