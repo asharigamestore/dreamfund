@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - Dashboard Page
+         Main dashboard with overview & analytics
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DreamFund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Sidebar Overlay (Mobile)
+         ============================================ -->
+    <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ============================================
+         Sidebar
+         ============================================ -->
+    <aside class="sidebar">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="sidebar-brand-text">DreamFund</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a href="dashboard.html" class="nav-item-sidebar active">
+                <i class="fas fa-home"></i>
+                <span class="nav-item-text">Beranda</span>
+            </a>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-piggy-bank"></i>
+                <span class="nav-item-text">Celengan Saya</span>
+            </a>
+            
+            <a href="wishlist.html" class="nav-item-sidebar">
+                <i class="fas fa-heart"></i>
+                <span class="nav-item-text">Wishlist</span>
+            </a>
+            
+            <a href="statistics.html" class="nav-item-sidebar">
+                <i class="fas fa-chart-pie"></i>
+                <span class="nav-item-text">Statistik</span>
+            </a>
+            
+            <a href="history.html" class="nav-item-sidebar">
+                <i class="fas fa-history"></i>
+                <span class="nav-item-text">Riwayat</span>
+            </a>
+            
+            <div class="nav-section-title">Lainnya</div>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-trophy"></i>
+                <span class="nav-item-text">Achievement</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-bell"></i>
+                <span class="nav-item-text">Pengingat</span>
+            </a>
+            
+            <a href="settings.html" class="nav-item-sidebar">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item-text">Pengaturan</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-user"></i>
+                <span class="nav-item-text">Tentang Developer</span>
+            </a>
+            
+            <a href="contact.html" class="nav-item-sidebar">
+                <i class="fas fa-phone"></i>
+                <span class="nav-item-text">Kontak</span>
+            </a>
+        </nav>
+        
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="sidebar-avatar">A</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ashari</div>
+                    <div class="sidebar-user-role">Dream Saver</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         Main Content
+         ============================================ -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="d-flex align-items-center gap-3">
+                <button class="header-btn d-lg-none" id="mobile-sidebar-toggle" title="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="header-search d-none d-md-block">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="form-control" id="global-search" placeholder="Cari target, wishlist...">
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="header-btn position-relative" id="notification-btn" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-pill" id="notification-count">3</span>
+                </button>
+                
+                <button class="header-btn" title="Profil">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">Dashboard</h1>
+                <p class="page-subtitle" id="greeting-text">Selamat datang kembali!</p>
+            </div>
+
+            <!-- Stats Cards Row -->
+            <div class="row g-4 mb-4">
+                <!-- Total Target -->
+                <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="stat-card-icon primary">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <span class="badge-custom info" id="active-targets-badge">0 Aktif</span>
+                        </div>
+                        <div class="stat-card-value" id="total-target">Rp 0</div>
+                        <div class="stat-card-label">Total Target</div>
+                        <div class="stat-card-change positive">
+                            <i class="fas fa-arrow-up me-1"></i><span id="target-count">0</span> target
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Total Tabungan -->
+                <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="stat-card-icon success">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <span class="badge-custom success" id="progress-badge">0%</span>
+                        </div>
+                        <div class="stat-card-value" id="total-saved">Rp 0</div>
+                        <div class="stat-card-label">Total Tabungan</div>
+                        <div class="stat-card-change positive">
+                            <i class="fas fa-arrow-up me-1"></i><span id="transaction-count">0</span> transaksi
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Target Selesai -->
+                <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="stat-card-icon warning">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <span class="badge-custom warning">Completed</span>
+                        </div>
+                        <div class="stat-card-value" id="completed-count">0</div>
+                        <div class="stat-card-label">Target Selesai</div>
+                        <div class="stat-card-change positive">
+                            <i class="fas fa-check-circle me-1"></i>Keep it up!
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Wishlist -->
+                <div class="col-sm-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div class="stat-card-icon danger">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <span class="badge-custom danger" id="wishlist-badge">Wishlist</span>
+                        </div>
+                        <div class="stat-card-value" id="wishlist-count">0</div>
+                        <div class="stat-card-label">Wishlist Impian</div>
+                        <div class="stat-card-change positive">
+                            <i class="fas fa-plus me-1"></i>Tambah baru
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Row -->
+            <div class="row g-4 mb-4">
+                <!-- Circular Progress & Chart -->
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">Progress Keseluruhan</h5>
+                            <a href="statistics.html" class="btn btn-sm btn-outline-primary">
+                                <i class="fas fa-chart-line me-1"></i>Detail
+                            </a>
+                        </div>
+                        
+                        <div class="row align-items-center">
+                            <!-- Circular Progress -->
+                            <div class="col-md-5 text-center mb-4 mb-md-0">
+                                <div class="circular-progress" id="overall-progress">
+                                    <svg width="160" height="160" viewBox="0 0 160 160">
+                                        <defs>
+                                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" style="stop-color:#2563EB"/>
+                                                <stop offset="100%" style="stop-color:#8B5CF6"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="circular-progress-bg" cx="80" cy="80" r="70"/>
+                                        <circle class="circular-progress-bar" id="progress-circle" cx="80" cy="80" r="70"/>
+                                    </svg>
+                                    <div class="circular-progress-text">
+                                        <div class="circular-progress-percent" id="progress-percent">0%</div>
+                                        <div class="circular-progress-label">Tercapai</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress Bars -->
+                            <div class="col-md-7">
+                                <div id="target-progress-list">
+                                    <!-- Dynamic content -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions & Quote -->
+                <div class="col-lg-4">
+                    <!-- Quick Actions -->
+                    <div class="glass-card p-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                        <h5 class="fw-bold mb-3">Quick Action</h5>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary" onclick="openAddTargetModal()">
+                                <i class="fas fa-plus me-2"></i>Tambah Target
+                            </button>
+                            <button class="btn btn-outline-primary" onclick="openAddSavingModal()">
+                                <i class="fas fa-piggy-bank me-2"></i>Tambah Tabungan
+                            </button>
+                            <a href="wishlist.html" class="btn btn-outline-primary">
+                                <i class="fas fa-heart me-2"></i>Tambah Wishlist
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Motivational Quote -->
+                    <div class="glass-card p-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <i class="fas fa-quote-left text-primary"></i>
+                            <h6 class="fw-bold mb-0">Quote Hari Ini</h6>
+                        </div>
+                        <div id="quote-container" class="quote-container">
+                            <div class="quote-text fst-italic text-secondary mb-2">"Setiap perjalanan besar dimulai dari langkah kecil."</div>
+                            <div class="quote-author text-muted small text-end">— Lao Tzu</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity & Wishlist Row -->
+            <div class="row g-4 mb-4">
+                <!-- Recent Activity -->
+                <div class="col-lg-7" data-aos="fade-up">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">Aktivitas Terbaru</h5>
+                            <a href="history.html" class="btn btn-sm btn-link text-primary text-decoration-none">
+                                Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                        
+                        <div id="recent-activity-list">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Wishlist -->
+                <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">Wishlist Terbaru</h5>
+                            <a href="wishlist.html" class="btn btn-sm btn-link text-primary text-decoration-none">
+                                Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                        
+                        <div id="recent-wishlist-list">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="row g-4 mb-4">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="glass-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">Grafik Perkembangan Tabungan</h5>
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-secondary active" data-chart-period="7">7 Hari</button>
+                                <button class="btn btn-sm btn-outline-secondary" data-chart-period="30">30 Hari</button>
+                                <button class="btn btn-sm btn-outline-secondary" data-chart-period="90">3 Bulan</button>
+                            </div>
+                        </div>
+                        <div style="height: 300px;">
+                            <canvas id="savings-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Section -->
+            <div class="row g-4">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="glass-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">🏆 Achievement</h5>
+                            <a href="about.html" class="btn btn-sm btn-link text-primary text-decoration-none">
+                                Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
+                            </a>
+                        </div>
+                        
+                        <div id="achievements-list" class="row g-3">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Footer -->
+        <footer class="mt-5 py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+            <p class="text-muted small mb-0">
+                Made with <i class="fas fa-heart text-danger"></i> by Ashari &bull; Version 1.0.0
+            </p>
+        </footer>
+    </main>
+
+    <!-- ============================================
+         Add Target Modal
+         ============================================ -->
+    <div class="modal fade" id="addTargetModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-plus-circle text-primary me-2"></i>Tambah Target Baru
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-target-form">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Target</label>
+                            <input type="text" class="form-control" name="name" placeholder="Contoh: MacBook Pro" required>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Target Nominal</label>
+                                <input type="number" class="form-control" name="targetAmount" placeholder="28000000" min="1000" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Tabungan Awal</label>
+                                <input type="number" class="form-control" name="currentAmount" placeholder="0" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Kategori</label>
+                                <select class="form-select" name="category" required>
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="elektronik">Elektronik</option>
+                                    <option value="kendaraan">Kendaraan</option>
+                                    <option value="properti">Properti</option>
+                                    <option value="travel">Travel</option>
+                                    <option value="pendidikan">Pendidikan</option>
+                                    <option value="kesehatan">Kesehatan</option>
+                                    <option value="bisnis">Bisnis</option>
+                                    <option value="pernikahan">Pernikahan</option>
+                                    <option value="darurat">Dana Darurat</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label">Target Tanggal</label>
+                                <input type="date" class="form-control" name="deadline" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deskripsi (Opsional)</label>
+                            <textarea class="form-control" name="description" rows="2" placeholder="Deskripsi target..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" onclick="submitAddTarget()">
+                        <i class="fas fa-save me-2"></i>Simpan Target
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Add Saving Modal
+         ============================================ -->
+    <div class="modal fade" id="addSavingModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">
+                        <i class="fas fa-piggy-bank text-success me-2"></i>Tambah Tabungan
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-saving-form">
+                        <div class="mb-3">
+                            <label class="form-label">Pilih Target</label>
+                            <select class="form-select" name="targetId" id="saving-target-select" required>
+                                <option value="">Pilih Target Tabungan</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Nominal Tabungan</label>
+                            <input type="number" class="form-control" name="amount" placeholder="1000000" min="1000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Catatan (Opsional)</label>
+                            <textarea class="form-control" name="note" rows="2" placeholder="Contoh: Tabungan bulan Juli"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-success" onclick="submitAddSaving()">
+                        <i class="fas fa-save me-2"></i>Simpan Tabungan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
