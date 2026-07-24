@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - About Developer Page
+         Developer profile and achievements
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Developer - DreamFund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .developer-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
+            border: 4px solid var(--bg-card);
+        }
+        
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all 0.2s ease;
+        }
+        
+        .skill-badge:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+        
+        .social-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            color: var(--primary);
+        }
+        
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .social-icon.github { background: #333; color: white; }
+        .social-icon.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .social-icon.whatsapp { background: #25D366; color: white; }
+        .social-icon.email { background: #EA4335; color: white; }
+    </style>
+</head>
+<body class="dashboard-body">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Sidebar Overlay (Mobile)
+         ============================================ -->
+    <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ============================================
+         Sidebar
+         ============================================ -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="sidebar-brand-text">DreamFund</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-home"></i>
+                <span class="nav-item-text">Beranda</span>
+            </a>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-piggy-bank"></i>
+                <span class="nav-item-text">Celengan Saya</span>
+            </a>
+            
+            <a href="wishlist.html" class="nav-item-sidebar">
+                <i class="fas fa-heart"></i>
+                <span class="nav-item-text">Wishlist</span>
+            </a>
+            
+            <a href="statistics.html" class="nav-item-sidebar">
+                <i class="fas fa-chart-pie"></i>
+                <span class="nav-item-text">Statistik</span>
+            </a>
+            
+            <a href="history.html" class="nav-item-sidebar">
+                <i class="fas fa-history"></i>
+                <span class="nav-item-text">Riwayat</span>
+            </a>
+            
+            <div class="nav-section-title">Lainnya</div>
+            
+            <a href="about.html" class="nav-item-sidebar active">
+                <i class="fas fa-user"></i>
+                <span class="nav-item-text">Tentang Developer</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-trophy"></i>
+                <span class="nav-item-text">Achievement</span>
+            </a>
+            
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-bell"></i>
+                <span class="nav-item-text">Pengingat</span>
+            </a>
+            
+            <a href="settings.html" class="nav-item-sidebar">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item-text">Pengaturan</span>
+            </a>
+            
+            <a href="contact.html" class="nav-item-sidebar">
+                <i class="fas fa-phone"></i>
+                <span class="nav-item-text">Kontak</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="sidebar-avatar">A</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ashari</div>
+                    <div class="sidebar-user-role">Dream Saver</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         Main Content
+         ============================================ -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="d-flex align-items-center gap-3">
+                <button class="header-btn d-lg-none" id="mobile-sidebar-toggle" title="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="header-btn position-relative" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-pill" style="font-size: 0.6rem; padding: 0.15rem 0.4rem;">3</span>
+                </button>
+                
+                <button class="header-btn" title="Profil">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Page Header -->
+            <div class="page-header text-center mb-5">
+                <h1 class="page-title">Tentang Developer</h1>
+                <p class="page-subtitle">Mengenal orang di balik DreamFund</p>
+            </div>
+
+            <!-- Developer Profile -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <div class="glass-card p-5 text-center">
+                        <div class="developer-avatar">A</div>
+                        <h3 class="fw-bold mb-1">Ashari</h3>
+                        <p class="text-primary fw-semibold mb-3">Frontend Engineer & UI/UX Designer</p>
+                        <p class="text-secondary mb-4" style="max-width: 500px; margin: 0 auto; line-height: 1.8;">
+                            Halo! Saya Ashari, seorang pengembang web yang passionate menciptakan aplikasi 
+                            yang bermanfaat. DreamFund lahir dari kebutuhan pribadi untuk mengatur target 
+                            tabungan dengan cara yang visual dan menyenangkan. Semoga aplikasi ini bisa 
+                            membantumu mewujudkan impian!
+                        </p>
+                        
+                        <!-- Skills -->
+                        <div class="mb-4">
+                            <h6 class="fw-bold mb-3">Tech Stack</h6>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="skill-badge"><i class="fab fa-html5" style="color: #E34F26;"></i>HTML5</span>
+                                <span class="skill-badge"><i class="fab fa-css3-alt" style="color: #1572B6;"></i>CSS3</span>
+                                <span class="skill-badge"><i class="fab fa-js" style="color: #F7DF1E;"></i>JavaScript</span>
+                                <span class="skill-badge"><i class="fab fa-bootstrap" style="color: #7952B3;"></i>Bootstrap</span>
+                                <span class="skill-badge"><i class="fas fa-chart-bar" style="color: #FF6384;"></i>Chart.js</span>
+                                <span class="skill-badge"><i class="fas fa-paint-brush" style="color: #F24E1E;"></i>Figma</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Links -->
+                        <div class="row g-3 justify-content-center">
+                            <div class="col-6 col-md-3">
+                                <a href="https://github.com" target="_blank" class="social-card">
+                                    <div class="social-icon github">
+                                        <i class="fab fa-github"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <div class="fw-semibold small">GitHub</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">@ashari-dev</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://instagram.com" target="_blank" class="social-card">
+                                    <div class="social-icon instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <div class="fw-semibold small">Instagram</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">@ashari.dev</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="https://wa.me/6281234567890" target="_blank" class="social-card">
+                                    <div class="social-icon whatsapp">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <div class="fw-semibold small">WhatsApp</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">+62 812-3456-7890</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <a href="mailto:hello@dreamfund.app" class="social-card">
+                                    <div class="social-icon email">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="text-start">
+                                        <div class="fw-semibold small">Email</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">hello@dreamfund.app</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Achievements Section -->
+            <div class="row mb-5">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="glass-card p-4">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h5 class="fw-bold mb-0">🏆 Achievement Kamu</h5>
+                            <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill" id="achievement-count">0 / 10</span>
+                        </div>
+                        
+                        <div class="row g-3" id="user-achievements">
+                            <!-- Dynamic content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- App Info -->
+            <div class="row g-4">
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="glass-card p-4 h-100">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-info-circle text-primary me-2"></i>Tentang DreamFund</h6>
+                        <p class="text-secondary small mb-3" style="line-height: 1.8;">
+                            DreamFund adalah aplikasi web untuk membantu siapa saja mengatur target tabungan, 
+                            wishlist impian, dan memantau progres menuju tujuan finansial mereka.
+                        </p>
+                        <ul class="list-unstyled small text-secondary mb-0">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>100% Gratis & Tanpa Iklan</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Data Tersimpan di Perangkatmu</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Tidak Perlu Registrasi</li>
+                            <li class="mb-0"><i class="fas fa-check text-success me-2"></i>Export/Import Data JSON</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card p-4 h-100">
+                        <h6 class="fw-bold mb-3"><i class="fas fa-code text-primary me-2"></i>Teknologi</h6>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fab fa-html5 text-danger"></i>
+                                    <span class="small">HTML5</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fab fa-css3-alt text-primary"></i>
+                                    <span class="small">CSS3</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fab fa-js text-warning"></i>
+                                    <span class="small">JavaScript ES6</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fab fa-bootstrap text-purple"></i>
+                                    <span class="small">Bootstrap 5</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fas fa-font text-info"></i>
+                                    <span class="small">Google Fonts</span>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-flex align-items-center gap-2 p-2 rounded-3" style="background: var(--bg-body);">
+                                    <i class="fas fa-chart-line text-success"></i>
+                                    <span class="small">Chart.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-5 py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+            <p class="text-muted small mb-0">
+                Made with <i class="fas fa-heart text-danger"></i> by Ashari &bull; Version 1.0.0
+            </p>
+        </footer>
+    </main>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        // Render user achievements on about page
+        document.addEventListener('DOMContentLoaded', function() {
+            const data = getData();
+            const earnedIds = data.achievements.map(a => a.id);
+            
+            // Update count badge
+            const countEl = document.getElementById('achievement-count');
+            if (countEl) {
+                countEl.textContent = `${earnedIds.length} / ${DreamFund.achievementsList.length}`;
+            }
+            
+            // Render achievements grid
+            const container = document.getElementById('user-achievements');
+            if (container) {
+                container.innerHTML = DreamFund.achievementsList.map(achievement => {
+                    const isEarned = earnedIds.includes(achievement.id);
+                    const earnedData = data.achievements.find(a => a.id === achievement.id);
+                    
+                    return `
+                        <div class="col-6 col-md-4 col-lg-3">
+                            <div class="text-center p-3 rounded-3 h-100 ${isEarned ? '' : 'opacity-40'}" 
+                                 style="background: ${isEarned ? `linear-gradient(135deg, rgba(var(--${achievement.color}-rgb), 0.1), rgba(var(--${achievement.color}-rgb), 0.05))` : 'var(--bg-body)'}; 
+                                 border: 1px solid ${isEarned ? `rgba(var(--${achievement.color}-rgb), 0.2)` : 'var(--border-color)'};">
+                                <div style="width: 56px; height: 56px; border-radius: 16px; 
+                                     background: ${isEarned ? `linear-gradient(135deg, var(--${achievement.color}), var(--${achievement.color}))` : 'var(--border-color)'}; 
+                                     display: flex; align-items: center; justify-content: center; 
+                                     color: ${isEarned ? 'white' : 'var(--text-muted)'}; margin: 0 auto 0.75rem; font-size: 1.5rem;">
+                                    <i class="fas ${achievement.icon}"></i>
+                                </div>
+                                <div class="fw-bold small ${isEarned ? '' : 'text-muted'}">${achievement.name}</div>
+                                <div class="small text-muted" style="font-size: 0.7rem;">${achievement.description}</div>
+                                ${earnedData ? `<div class="small text-success mt-1" style="font-size: 0.7rem;"><i class="fas fa-check-circle me-1"></i>${formatDateShort(earnedData.earnedAt)}</div>` : ''}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        });
+    </script>
+</body>
+</html>
