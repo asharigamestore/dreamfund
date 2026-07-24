@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+<head>
+    <!-- ============================================
+         DreamFund - Contact Page
+         Contact form and information
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - DreamFund</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎯%3C/text%3E%3C/svg%3E">
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <style>
+        .contact-info-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-card:hover {
+            background: var(--bg-hover);
+            border-color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-form-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+        }
+        
+        .form-floating > .form-control,
+        .form-floating > .form-select {
+            background: var(--bg-body);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .form-floating > .form-control:focus,
+        .form-floating > .form-select:focus {
+            background: var(--bg-card);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-floating > label {
+            color: var(--text-muted);
+        }
+        
+        .form-floating > .form-control:focus ~ label,
+        .form-floating > .form-control:not(:placeholder-shown) ~ label,
+        .form-floating > .form-select ~ label {
+            color: var(--primary);
+            background: var(--bg-card);
+            padding: 0 0.5rem;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    
+    <!-- ============================================
+         Loading Screen
+         ============================================ -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-bullseye"></i>
+            </div>
+            <div class="loading-text">DreamFund</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         Sidebar Overlay (Mobile)
+         ============================================ -->
+    <div class="sidebar-overlay" onclick="toggleMobileSidebar()"></div>
+
+    <!-- ============================================
+         Sidebar
+         ============================================ -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <span class="sidebar-brand-text">DreamFund</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebar-toggle" title="Collapse Sidebar">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <div class="nav-section-title">Menu Utama</div>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-home"></i>
+                <span class="nav-item-text">Beranda</span>
+            </a>
+            
+            <a href="dashboard.html" class="nav-item-sidebar">
+                <i class="fas fa-piggy-bank"></i>
+                <span class="nav-item-text">Celengan Saya</span>
+            </a>
+            
+            <a href="wishlist.html" class="nav-item-sidebar">
+                <i class="fas fa-heart"></i>
+                <span class="nav-item-text">Wishlist</span>
+            </a>
+            
+            <a href="statistics.html" class="nav-item-sidebar">
+                <i class="fas fa-chart-pie"></i>
+                <span class="nav-item-text">Statistik</span>
+            </a>
+            
+            <a href="history.html" class="nav-item-sidebar">
+                <i class="fas fa-history"></i>
+                <span class="nav-item-text">Riwayat</span>
+            </a>
+            
+            <div class="nav-section-title">Lainnya</div>
+
+        
+            <a href="about.html" class="nav-item-sidebar">
+                <i class="fas fa-user"></i>
+                <span class="nav-item-text">Tentang Developer</span>
+            </a>
+            
+            <a href="contact.html" class="nav-item-sidebar active">
+                <i class="fas fa-phone"></i>
+                <span class="nav-item-text">Kontak</span>
+            </a>
+            
+            <a href="settings.html" class="nav-item-sidebar">
+                <i class="fas fa-cog"></i>
+                <span class="nav-item-text">Pengaturan</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-content">
+                <div class="sidebar-avatar">A</div>
+                <div class="sidebar-user-info">
+                    <div class="sidebar-user-name">Ashari</div>
+                    <div class="sidebar-user-role">Dream Saver</div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ============================================
+         Main Content
+         ============================================ -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="d-flex align-items-center gap-3">
+                <button class="header-btn d-lg-none" id="mobile-sidebar-toggle" title="Menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn" id="theme-toggle" title="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="header-btn position-relative" title="Notifikasi">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge bg-danger rounded-pill" style="font-size: 0.6rem; padding: 0.15rem 0.4rem;">3</span>
+                </button>
+                
+                <button class="header-btn" title="Profil">
+                    <i class="fas fa-user-circle"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Page Header -->
+            <div class="page-header text-center mb-5">
+                <h1 class="page-title">Hubungi Kami</h1>
+                <p class="page-subtitle">Punya pertanyaan, saran, atau menemukan bug? Kirim pesan!</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Contact Info -->
+                <div class="col-lg-4" data-aos="fade-right">
+                    <div class="glass-card p-4 h-100">
+                        <h5 class="fw-bold mb-4">Informasi Kontak</h5>
+                        
+                        <div class="d-flex flex-column gap-3 mb-4">
+                            <a href="mailto:hello@dreamfund.app" class="contact-info-card text-decoration-none">
+                                <div class="contact-icon" style="background: rgba(234, 67, 53, 0.1); color: #EA4335;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold small">Email</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">hello@dreamfund.app</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://instagram.com" target="_blank" class="contact-info-card text-decoration-none">
+                                <div class="contact-icon" style="background: linear-gradient(45deg, rgba(240, 148, 51, 0.1), rgba(188, 24, 136, 0.1)); color: #BC1888;">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold small">Instagram</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">@dreamfund.app</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://github.com" target="_blank" class="contact-info-card text-decoration-none">
+                                <div class="contact-icon" style="background: rgba(51, 51, 51, 0.1); color: #333;">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold small">GitHub</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">github.com/dreamfund</div>
+                                </div>
+                            </a>
+                            
+                            <a href="https://wa.me/6281234567890" target="_blank" class="contact-info-card text-decoration-none">
+                                <div class="contact-icon" style="background: rgba(37, 211, 102, 0.1); color: #25D366;">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-semibold small">WhatsApp</div>
+                                    <div class="text-muted" style="font-size: 0.85rem;">+62 812-3456-7890</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <div class="p-3 rounded-3" style="background: var(--bg-body);">
+                            <h6 class="fw-bold small mb-2"><i class="fas fa-clock text-primary me-2"></i>Jam Operasional</h6>
+                            <p class="text-muted small mb-0">Senin - Jumat: 09.00 - 17.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="contact-form-card">
+                        <h5 class="fw-bold mb-4">Kirim Pesan</h5>
+                        
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)">
+                            <div class="row g-3 mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="contact-name" placeholder="Nama" required>
+                                        <label for="contact-name">Nama Lengkap</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="contact-email" placeholder="Email" required>
+                                        <label for="contact-email">Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-floating mb-3">
+                                <select class="form-select" id="contact-subject" required>
+                                    <option value="" selected disabled>Pilih Subjek</option>
+                                    <option value="bug">Lapor Bug</option>
+                                    <option value="feature">Request Fitur</option>
+                                    <option value="question">Pertanyaan</option>
+                                    <option value="feedback">Saran & Feedback</option>
+                                    <option value="other">Lainnya</option>
+                                </select>
+                                <label for="contact-subject">Subjek</label>
+                            </div>
+                            
+                            <div class="form-floating mb-4">
+                                <textarea class="form-control" id="contact-message" placeholder="Pesan" style="height: 150px;" required></textarea>
+                                <label for="contact-message">Pesan Kamu</label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg w-100 btn-glow">
+                                <i class="fas fa-paper-plane me-2"></i>Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Quick Links -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up">
+                    <div class="glass-card p-4 text-center">
+                        <h5 class="fw-bold mb-3">Punya Pertanyaan Umum?</h5>
+                        <p class="text-secondary mb-3">Mungkin jawabannya sudah ada di halaman FAQ kami.</p>
+                        <a href="index.html#faq" class="btn btn-outline-primary">
+                            <i class="fas fa-question-circle me-2"></i>Lihat FAQ
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="mt-5 py-4 text-center border-top" style="border-color: var(--border-color) !important;">
+            <p class="text-muted small mb-0">
+                Made with <i class="fas fa-heart text-danger"></i> by Ashari &bull; Version 1.0.0
+            </p>
+        </footer>
+    </main>
+
+    <!-- ============================================
+         Toast Container
+         ============================================ -->
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <!-- ============================================
+         Scripts
+         ============================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <script>
+        // Handle contact form submission
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+            
+            // Since this is a static site, we'll show a success message
+            // In production, this would send to a backend API
+            
+            Swal.fire({
+                title: 'Pesan Terkirim!',
+                html: `
+                    <div class="text-start">
+                        <p class="mb-2">Terima kasih <strong>${name}</strong>!</p>
+                        <p class="small text-muted mb-0">Pesan kamu telah kami simpan. Karena ini adalah aplikasi static, pesan tidak benar-benar terkirim ke server. Untuk kontak langsung, silakan gunakan email atau WhatsApp.</p>
+                    </div>
+                `,
+                icon: 'success',
+                confirmButtonColor: '#2563EB',
+                confirmButtonText: 'Mengerti',
+                background: getComputedStyle(document.documentElement).getPropertyValue('--bg-card').trim(),
+                color: getComputedStyle(document.documentElement).getPropertyValue('--text-primary').trim()
+            });
+            
+            // Reset form
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+</body>
+</html>
